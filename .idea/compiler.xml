@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="cas_demo1" target="1.7" />
+      <module name="cas_demo2" target="1.7" />
+      <module name="cas_demo3" target="1.7" />
+      <module name="legou_cart_interface" target="1.7" />
+      <module name="legou_cart_service" target="1.7" />
+      <module name="legou_cart_web" target="1.7" />
+      <module name="legou_common" target="1.7" />
+      <module name="legou_dao" target="1.7" />
+      <module name="legou_domain" target="1.7" />
+      <module name="legou_itempage_interface" target="1.7" />
+      <module name="legou_itempage_service" target="1.7" />
+      <module name="legou_itempage_web" target="1.7" />
+      <module name="legou_manager_web" target="1.7" />
+      <module name="legou_parent" target="1.7" />
+      <module name="legou_portal1_web" target="1.7" />
+      <module name="legou_search_interface" target="1.7" />
+      <module name="legou_search_service" target="1.7" />
+      <module name="legou_search_web" target="1.7" />
+      <module name="legou_sg_interface" target="1.7" />
+      <module name="legou_sg_service" target="1.7" />
+      <module name="legou_shop_web" target="1.7" />
+      <module name="legou_sms_web" target="1.7" />
+      <module name="legou_solrdata_init" target="1.7" />
+      <module name="legou_user_interface" target="1.7" />
+      <module name="legou_user_service" target="1.7" />
+      <module name="legou_user_web" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

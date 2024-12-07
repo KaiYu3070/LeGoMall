@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	   xmlns:context="http://www.springframework.org/schema/context" xmlns:p="http://www.springframework.org/schema/p"
+	   xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+	   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	   xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.2.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+	http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+	<!-- Load configuration files -->
+	<context:property-placeholder location="classpath*:config/*.properties" />
+
+	<!-- Database connection pool -->
+	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
+		  destroy-method="close">
+		<property name="url" value="${jdbc.url}" />
+		<property name="username" value="${jdbc.username}" />
+		<property name="password" value="${jdbc.password}" />
+		<property name="driverClassName" value="${jdbc.driver}" />
+		<property name="maxActive" value="10" />
+		<property name="minIdle" value="5" />
+	</bean>
+
+	<!-- Let Spring manage the SqlSessionFactory, using MyBatis with Spring integration -->
+	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+		<!-- Database connection pool -->
+		<property name="dataSource" ref="dataSource" />
+		<!-- Load MyBatis global configuration file -->
+		<property name="configLocation" value="classpath:mybatis/SqlMapConfig.xml" />
+		<!-- Enable aliasing and scan the package structure of entity classes -->
+		<property name="typeAliasesPackage" value="k.kk.domain,k.kk.searchPage" />
+		<!-- Load all mapping configuration files -->
+		<property name="mapperLocations" value="classpath:mappers/*.xml" />
+	</bean>
+
+	<!-- Scan the specified package structure, generate proxy objects, and store them in the IOC container -->
+	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+		<property name="sqlSessionFactory" ref="sqlSessionFactory" />
+		<property name="basePackage" value="k.kk.mapper" />
+	</bean>
+
+</beans>
