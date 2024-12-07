@@ -55,7 +55,7 @@ The platform integrates Alipay and WeChat Pay for user payments, and merchants c
 Clone the project repository to your local machine:
 
 ```bash
-git clone https://github.com/yourusername/legou-mall.git
+git clone https://github.com/KaiYu3070/LeGoMall.git
 ```
 
 ### 2. Set Up Database
